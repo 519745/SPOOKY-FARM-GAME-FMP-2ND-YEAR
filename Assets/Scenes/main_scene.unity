@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 30892278}
   - component: {fileID: 30892277}
   - component: {fileID: 30892279}
-  - component: {fileID: 30892280}
   - component: {fileID: 30892282}
   - component: {fileID: 30892281}
   m_Layer: 0
@@ -160,8 +159,8 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
-  m_Color: {r: 0.8207547, g: 0.5554206, b: 0.38327694, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 0.5737412, b: 0.21383637, a: 1}
+  m_Intensity: 0.3
   m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 000000007b09535b
@@ -252,18 +251,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.5
---- !u!114 &30892280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30892276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49da7a88e71fd9e4f88db8dee09c190d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &30892281
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -467,7 +454,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 378624447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49da7a88e71fd9e4f88db8dee09c190d, type: 3}
+  m_Script: {fileID: 11500000, guid: 29a01230149c020449598d9c57b80073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &495376074
@@ -485,7 +472,6 @@ GameObject:
   - component: {fileID: 495376079}
   - component: {fileID: 495376080}
   - component: {fileID: 495376081}
-  - component: {fileID: 495376082}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -658,18 +644,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 3
---- !u!114 &495376082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 495376074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49da7a88e71fd9e4f88db8dee09c190d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,7 +767,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -850,7 +824,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 3
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.3
   m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 000000007b09535b
@@ -895,7 +869,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547524175}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.91, y: -1.02, z: 0}
+  m_LocalPosition: {x: 1.91, y: -1.02, z: -3.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1885,7 +1859,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.15619439, g: 0.17740643, b: 0.509434, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -9, y: -7, z: 0}
   m_Size: {x: 22, y: 11, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -2493,6 +2467,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446668836}
   m_CullTransparentMesh: 0
+--- !u!1 &1605133922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1605133924}
+  - component: {fileID: 1605133923}
+  - component: {fileID: 1605133925}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1605133923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605133922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 0
+  sharedProfile: {fileID: 11400000, guid: 68d58811756ff0b47894c74434c72f40, type: 2}
+--- !u!4 &1605133924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605133922}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.458509, y: -1.6980824, z: -6.3420277}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1605133925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605133922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e90c5fdfa55d37479d829726922fa98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeDisplay: {fileID: 0}
+  dayDisplay: {fileID: 0}
+  ppv: {fileID: 0}
+  tick: 1000
+  seconds: 0
+  mins: 0
+  hours: 0
+  days: 1
+  activateLights: 0
+  lights: []
+  stars: []
 --- !u!1001 &1628440002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3107,7 +3153,7 @@ GameObject:
   - component: {fileID: 2131106736}
   m_Layer: 0
   m_Name: Flame torch
-  m_TagString: Untagged
+  m_TagString: Flame torch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3155,7 +3201,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 8785034863198750711, guid: ee8a148358d70e14a9b72fd37be1b8fc,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.764151, g: 0.22693865, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3190,7 +3236,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.02, y: 0.15}
@@ -3203,7 +3249,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131106732}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29a01230149c020449598d9c57b80073, type: 3}
   m_Name: 

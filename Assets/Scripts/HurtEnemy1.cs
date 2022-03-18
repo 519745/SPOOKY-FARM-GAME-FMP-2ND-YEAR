@@ -16,11 +16,11 @@ public class HurtEnemy1 : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Flame torch")
         {
-            Destroy(other.gameObject);
+            Destroy (gameObject);
         }
     }
 }
