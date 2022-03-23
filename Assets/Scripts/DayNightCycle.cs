@@ -60,6 +60,10 @@ public class DayNightCycle : MonoBehaviour
         if (hours>=6 && hours<15)
         {
             ppv.weight = 1 - (float)mins / 60; 
+
+            //GetComponent ()
+
+            //math.f
             for (int i = 0; i < stars.Length; i++)
             {
                 stars[i].color = new Color(stars[i].color.r, stars[i].color.g, stars[i].color.b, 1 -(float)mins / 60); 
@@ -80,7 +84,6 @@ public class DayNightCycle : MonoBehaviour
  
     public void DisplayTime()
     {
- 
         timeDisplay.text = string.Format("{0:00}:{1:00}", hours, mins); 
         dayDisplay.text = "Day: " + days; 
     }
