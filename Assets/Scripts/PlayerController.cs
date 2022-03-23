@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public DayNightCycle dayNightCycle;
     public Rigidbody2D myRigidbody;
     public float moveSpeed;
 
@@ -54,17 +55,23 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            if (Input.GetKeyDown(KeyCode.J))
+
+            if (dayNightCycle.hours>=21 || dayNightCycle.hours<6)
             {
+
+                if (Input.GetKeyDown(KeyCode.J))
+                {
                 attackTimeCounter = attackTime;
                 attacking = true;
                 myRigidbody.velocity = Vector2.zero;
                 anim.SetBool("Attack", true);
 
                 transform.GetChild(0).gameObject.SetActive(true);
+                }                
             }
-
         }
+
+        
 
         if (attackTimeCounter > 0)
         {
