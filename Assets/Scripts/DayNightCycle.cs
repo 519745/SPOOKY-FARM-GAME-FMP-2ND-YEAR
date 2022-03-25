@@ -26,6 +26,11 @@ public class DayNightCycle : MonoBehaviour
     {
         ppv = gameObject.GetComponent<Volume>();
     }
+
+    void Update()
+    {
+      
+    }
  
     // Update is called once per frame
     void FixedUpdate() // we used fixed update, since update is frame dependant. 
