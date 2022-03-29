@@ -4,6 +4,7 @@ using UnityEngine;
 public class WaveSpawner : MonoBehaviour {
 
     public enum SpawnState { SPAWNING, WAITING, COUNTING };
+    public Transform EnemyContainer;
 
     [System.Serializable]
     public class Wave
@@ -31,7 +32,6 @@ public class WaveSpawner : MonoBehaviour {
 
         if (spawnPoints.Length == 0)
         {
-
             Debug.LogError("no spawn points");
         }
         waveCountdown = timeBetweenWaves;
@@ -112,7 +112,7 @@ public class WaveSpawner : MonoBehaviour {
         for (int i = 0; i < _wave.count; i++)
         {
             SpawnEnemy(_wave.enemy);
-            yield return new WaitForSeconds( 1f / _wave.rate);
+            yield return new WaitForSeconds( 20f / _wave.rate);
         }
 
         state = SpawnState.WAITING;
@@ -124,7 +124,8 @@ public class WaveSpawner : MonoBehaviour {
     {
         Debug.Log("spawning Enemy:" + _enemy.name);
         Transform _sp = spawnPoints[ Random.Range(0, spawnPoints.Length) ];
-        Instantiate(_enemy, _sp.position, _sp.rotation);
+        var Go = Instantiate(_enemy, _sp.position, _sp.rotation);
+        Go.transform.parent = EnemyContainer;
 
         GameObject Enemy = GameObject.Find("Enemy(Clone)");
         Enemy.transform.GetChild(0).gameObject.SetActive(false);

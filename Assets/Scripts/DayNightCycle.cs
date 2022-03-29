@@ -11,6 +11,8 @@ public class DayNightCycle : MonoBehaviour
     public TextMeshProUGUI timeDisplay; // Display Time
     public TextMeshProUGUI dayDisplay; // Display Day
     public Volume ppv; // this is the post processing volume
+    public GameObject EC;
+    public WaveSpawner WS;
  
     public float tick; // Increasing the tick, increases second rate
     public float seconds; 
@@ -67,9 +69,10 @@ public class DayNightCycle : MonoBehaviour
     public void ControlPPV() // used to adjust the post processing slider.
     {
         //ppv.weight = 0;
-        if(hours>=21 && hours<22) // dusk at 21:00 / 9pm    -   until 22:00 / 10pm
+        if(hours>=19 && hours<20) // dusk at 21:00 / 9pm    -   until 22:00 / 10pm
         {
             ppv.weight =  (float)mins / 60; // since dusk is 1 hr, we just divide the mins by 60 which will slowly increase from 0 - 1 
+            WS.enabled = true;
             for (int i = 0; i < stars.Length; i++)
             {
                 stars[i].color = new Color(stars[i].color.r, stars[i].color.g, stars[i].color.b, (float)mins / 60); // change the alpha value of the stars so they become visible
@@ -89,9 +92,14 @@ public class DayNightCycle : MonoBehaviour
         }
      
  
-        if(hours>=6 && hours<7) // Dawn at 6:00 / 6am    -   until 7:00 / 7am
+        if(hours>=7 && hours<8) // Dawn at 6:00 / 6am    -   until 7:00 / 7am
         {
+            foreach(Transform enemy in EC.transform)
+            {
+                Destroy(enemy.gameObject);
+            }
             ppv.weight = 1 - (float)mins / 60; // we minus 1 because we want it to go from 1 - 0
+            WS.enabled = false;
             for (int i = 0; i < stars.Length; i++)
             {
                 stars[i].color = new Color(stars[i].color.r, stars[i].color.g, stars[i].color.b, 1 -(float)mins / 60); // make stars invisible

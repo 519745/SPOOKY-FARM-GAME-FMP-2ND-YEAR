@@ -7,22 +7,24 @@ public class DigitalClock : MonoBehaviour
 {
     TimeManager tm;
     Text display;
-
     public bool _24HourClock = true;
+    DayNightCycle TMExtra;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        tm = FindObjectOfType<TimeManager>();
+        //tm = FindObjectOfType<TimeManager>();
+        TMExtra = FindObjectOfType<DayNightCycle>();
         display = GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(_24HourClock)
-            display.text = tm.Clock24Hour();
-        else
-            display.text = tm.Clock12Hour();
+        display.text = Mathf.FloorToInt(TMExtra.hours).ToString("00") + ":" + Mathf.FloorToInt(TMExtra.mins).ToString("00");
+
+        
     }
 }

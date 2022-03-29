@@ -7,6 +7,9 @@ public class Clock : MonoBehaviour
     TimeManager tm;
 
     public RectTransform skyDome;
+    public float TimerSpeed = 1f;
+
+    
 
     float nightHoursToDegrees, dayHoursToDegrees;
 
@@ -18,7 +21,7 @@ public class Clock : MonoBehaviour
         nightHoursToDegrees = 180 / (TimeManager.hoursInDay * tm.nightDuration);
         dayHoursToDegrees = 180 / (TimeManager.hoursInDay * (1 - tm.nightDuration));
 
-        skyDome.rotation = Quaternion.Euler(0,0,45+tm.sunriseHour*nightHoursToDegrees);
+        //skyDome.rotation = Quaternion.Euler(0,0,0+tm.sunriseHour*nightHoursToDegrees);
     }
 
     // Update is called once per frame
@@ -27,11 +30,11 @@ public class Clock : MonoBehaviour
         if(((tm.GetHour()<tm.sunriseHour || tm.GetHour() > tm.GetSunsetHour())&&tm.sunriseHour<tm.GetSunsetHour()) ||
            ((tm.GetHour() < tm.sunriseHour && tm.GetHour() > tm.GetSunsetHour()) && tm.sunriseHour > tm.GetSunsetHour()))
         {
-            skyDome.Rotate(0,0,-Time.deltaTime *TimeManager.hoursInDay * nightHoursToDegrees/tm.dayDuration);
+            skyDome.Rotate(0,0,-Time.deltaTime * TimerSpeed *TimeManager.hoursInDay * nightHoursToDegrees/tm.dayDuration);
         }
         else
         {
-            skyDome.Rotate(0, 0, -Time.deltaTime * TimeManager.hoursInDay * dayHoursToDegrees / tm.dayDuration);
+            skyDome.Rotate(0, 0, -Time.deltaTime * TimerSpeed * TimeManager.hoursInDay * dayHoursToDegrees / tm.dayDuration);
         }
     }
 }
